@@ -1,8 +1,32 @@
+# # version: "3.9"
+
+# # services:
+# #   web:
+# #     build: .
+# #     ports:
+# #       - "5000:5000"
+# #     restart: always
+
+# version: '3.8'
+
+# services:
+#   flask-app:
+#     build: .
+#     ports:
+#       - "5000:5000"
+#     environment:
+#       - FLASK_ENV=development
+#       - SECRET_KEY=mysecret123
+#       - API_KEY=abcd1234
+
+
+
 version: "3.9"
 
 services:
-  web:
+  flask_app:
     build: .
     ports:
-      - "5000:5000"
-    restart: always
+      - "${PORT}:${PORT}"
+    env_file:
+      - .env
